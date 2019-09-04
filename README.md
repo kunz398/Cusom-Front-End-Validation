@@ -1,3 +1,4 @@
+ [Demo]([https://kunz398.github.io/Custom-FrontEnd-Validation/](https://kunz398.github.io/Custom-FrontEnd-Validation/))
 Validation:
 i have used bootstrap to give the form an appealing look (dont really need bootstrap to make it work)
 in order to use include this files in your html file
@@ -87,5 +88,5 @@ if (jQuery.inArray("false", isvalid) != -1) {
 //if all validation passes you can perform your form submission or Ajax call:
 }
 ```
-you can see the demo here__
+you can see the demo here [Demo]([https://kunz398.github.io/Custom-FrontEnd-Validation/](https://kunz398.github.io/Custom-FrontEnd-Validation/))
  
