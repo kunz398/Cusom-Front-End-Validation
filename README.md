@@ -1,5 +1,7 @@
- [Demo](https://kunz398.github.io/Custom-FrontEnd-Validation/)
-Validation:
+>  [Demo](https://kunz398.github.io/Custom-FrontEnd-Validation/)
+
+> Validation:
+
 i have used bootstrap to give the form an appealing look (dont really need bootstrap to make it work)
 in order to use include this files in your html file
 ```
