@@ -512,3 +512,257 @@ function validationForm(inputID_, messageID_, validationType, type ='text', show
     }
     return flag.toString();
 }
+
+
+function validationFormLoop(loopClass_,Messageid_,validationType,showMessage = true)
+{
+    let Messageid = $("#" + Messageid_);
+    let loopClass = $("." + loopClass_);
+    let flag = true;
+    let flagArry = {};
+    
+    let validationList = validationType.split("|");
+    let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    var testAplha = /^[a-zA-Z\s]+$/;
+    var testNumberic = /^[0-9\s]+$/;
+
+    for (let vlad in validationList)
+    {
+        
+        if (validationList[vlad] == 'none')
+        {
+            flag = true;            
+        }   
+   
+    if (validationList[vlad] == 'required')
+    {
+        if (flag)
+        {
+            let i=0;
+            loopClass.each(function()
+            {
+                if ($(this).val() == "")
+                {
+                    $(this).removeClass('balid');                                        
+                    $(this).addClass('inbalid');                                        
+                    $("#required_"+i).remove();
+                    $("<div class=\"inbalid-feedback\" id=\"required_"+i+"\">Please fill out this field.</div>").insertAfter($(this));
+                  
+                    flag = false;
+                    flagArry["required_"+i] = 'false';
+                    
+                }else{
+                    
+                    $(this).removeClass('inbalid');                  
+                    $("#required_"+i).remove();
+                    $(this).addClass('balid');
+                                     
+                    flag = true;                                    
+                    flagArry["required_"+i] = 'true';
+                }
+                i++;   
+            });
+        }               
+    }
+    if (validationList[vlad] == 'alpha')
+    {
+        let i=0;
+        if (flag)
+        {
+            loopClass.each(function()
+            {
+                if (!$(this).val().replace(/\s/g, '').length)
+                {
+                    $(this).removeClass('balid');                                        
+                    $(this).addClass('inbalid');                                        
+                    $("#alpha_"+i).remove();
+                    $("<div class=\"inbalid-feedback\" id=\"alpha_"+i+"\">This field only allows Alphabets.</div>").insertAfter($(this));
+                  
+                    flag = false;
+                    flagArry["alpha_"+i] = 'false';
+                }else{
+                    $(this).removeClass('inbalid');                                
+                    $(this).addClass('balid');
+                 
+                    $("#alpha_"+i).remove();
+                    
+                    flag = true;
+                    flagArry["alpha_"+i] = 'true';
+                }
+                i++;
+            });
+        }
+        if(flag)
+        {
+            let i=0;
+            loopClass.each(function()
+            {
+                if (!testAplha.test(($(this).val())))
+                {
+                    $(this).removeClass('balid');                                        
+                    $(this).addClass('inbalid');                                        
+                    $("#alpha_"+i).remove();
+                    $("<div class=\"inbalid-feedback\" id=\"alpha_"+i+"\">This field only allows Alphabets.</div>").insertAfter($(this));
+                  
+                    flag = false;                    
+                    flagArry["alpha_"+i] = 'false';
+                }else{
+                    $(this).removeClass('inbalid');                                
+                    $(this).addClass('balid');
+                 
+                    $("#alpha_"+i).remove();
+
+                    flag = true;
+                    flagArry["alpha_"+i] = 'true';
+                }
+                        i++;
+            });
+        }
+    }
+    if (validationList[vlad] == 'email')
+    {
+        if (flag)
+        {
+            let i=0;
+            loopClass.each(function()
+            {
+                if (!testEmail.test(($(this).val())))
+                {
+                    $(this).removeClass('balid');                                        
+                    $(this).addClass('inbalid');                                        
+                    $("#email_"+i).remove();
+                    $("<div class=\"inbalid-feedback\" id=\"email_"+i+"\">Please enter valid email address.</div>").insertAfter($(this));
+                  
+                  
+                    flag = false;                    
+                    flagArry["email_"+i] = 'false';
+                }else{
+                    $(this).removeClass('inbalid');                                
+                    $(this).addClass('balid');
+                 
+                    $("#email_"+i).remove();
+
+                    flag = true;
+                    flagArry["email_"+i] = 'true';
+                }
+                    i++;
+            });
+        }
+    } 
+
+        if (validationList[vlad] == 'numeric')
+        {
+            if (flag)
+            {
+                let i=0;
+                loopClass.each(function()
+                {
+                    if (!testNumberic.test(($(this).val())))
+                    {
+                        $(this).removeClass('balid');                                        
+                        $(this).addClass('inbalid');                                        
+                        $("#numeric_"+i).remove();
+                        $("<div class=\"inbalid-feedback\" id=\"numeric_"+i+"\">This field only accepts numeric input.</div>").insertAfter($(this));
+                                              
+                        flag = false;                        
+                        flagArry["numeric_"+i] = 'false';
+                    }else{
+                        $(this).removeClass('inbalid');                                
+                        $(this).addClass('balid');
+                     
+                        $("#numeric_"+i).remove();
+
+                        flag = true;                        
+                        flagArry["numeric_"+i] = 'true';
+                    }
+                        i++;
+                });
+            }
+        }
+        if (validationList[vlad].includes('min:'))
+        {
+            let minimumChar = validationList[vlad].split(":");
+            if (minimumChar[0] == 'min')
+            {
+                if (flag)
+                {
+                    try {
+                            let i=0;
+                        loopClass.each(function()
+                        {
+                        
+                            if ($(this).val().length < parseInt(minimumChar[1]))
+                            {
+                                $(this).removeClass('balid');                                        
+                                $(this).addClass('inbalid');                                        
+                                $("#min_"+i).remove();
+                                $("<div class=\"inbalid-feedback\" id=\"min_"+i+"\">This field requires at least " + minimumChar[1] + " characters.</div>").insertAfter($(this));
+                                                         
+                                flag = false;                                
+                                flagArry["min_"+i] = 'false';
+                            }else{
+                                $(this).removeClass('inbalid');                                
+                                $(this).addClass('balid');
+                     
+                                $("#min_"+i).remove();
+
+                                flag = true;
+                                flagArry["min_"+i] = 'true';
+                            }
+                                i++;
+                        });
+
+                        
+                    }catch (e) 
+                    {
+                        let i =0;
+                        loopClass.each(function()
+                        {                        
+                            if ($(this).text().length < parseInt(minimumChar[1]))
+                            {
+                                $(this).removeClass('balid');                                        
+                                $(this).addClass('inbalid');                                        
+                                $("#min_"+i).remove();
+                                $("<div class=\"inbalid-feedback\" id=\"min_"+i+"\">This field requires at least " + minimumChar[1] + " characters.</div>").insertAfter($(this));
+                                                         
+                                flag = false;                                
+                                flagArry["min_"+i] = 'false';
+                            }else{
+                                $(this).removeClass('inbalid');                                
+                                $(this).addClass('balid');
+                     
+                                $("#min_"+i).remove();
+
+                                flag = true;
+                                flagArry["min_"+i] = 'true';
+                            }
+                                i++;
+                        });
+                    
+                    }      
+                }
+            }
+        }
+      
+    }
+
+    
+    let ret;
+    for (var key in flagArry) {
+        if(flagArry[key] == "false")
+        {   
+                 
+            ret = 'false';           
+            break;
+        }else{
+            Messageid.html("");
+            ret = 'true';
+        }
+      }
+
+      for (var key in flagArry) {
+        console.log("key " + key + " has value " + flagArry[key]);
+      }
+      console.log(ret);
+    return ret;
+}

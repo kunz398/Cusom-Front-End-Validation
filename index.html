@@ -1,231 +1,294 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="validation.css">
     <title>validation</title>
 </head>
+
 <body>
 
-<div class="container">
-    <h2 class="m-5"><u>Validation Example</u></h2>
+    <div class="container">
+        <h2 class="m-5"><u>Validation Example</u></h2>
 
-    <form id="form">
-        <div style="border: 1px solid black;" class="p-5">
-            <div class="form-row">
-                <!--Name and mobile number-->
-                <div class="form-group col-md-6">
-                    <label for="name" class="justify-content-start mr-sm-2">Name:</label>
-                    <input autocomplete="off" type="text" class="form-control mb-2 mr-sm-2" id="name" name="name">
-                    <div id="nameMsg"></div>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="mobilePhone" class="justify-content-start mr-sm-2">Mobile Phone:</label>
-                    <input autocomplete="off" type="text" class="form-control mb-2 mr-sm-2" id="mobilePhone"
-                           name="mobilePhone">
-                    <div id="mobilePhoneMsg"></div>
-                </div>
-            </div>
-            <!--Email Adress-->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="email" class="justify-content-start mr-sm-2">Email Address:</label>
-                    <input autocomplete="off" type="text" class="form-control mb-2 mr-sm-2" id="email" name="email">
-                    <div id="emailMsg"></div>
-                </div>
-            </div>
-            <!--Radio Box-->
-            <div class="form-group">
-                <h4>Radio Box</h4>
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input autocomplete="off" type="radio" class="custom-control-input" id="num_1" value="num_1"
-                           name="radioboxes">
-                    <label for="num_1" class="custom-control-label">one</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input autocomplete="off" type="radio" class="custom-control-input" id="num_2" value="num_2"
-                           name="radioboxes">
-                    <label for="num_2" class="custom-control-label">two</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input autocomplete="off" type="radio" class="custom-control-input" id="num_3" value="num_3"
-                           name="radioboxes">
-                    <label for="num_3" class="custom-control-label">three</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input autocomplete="off" type="radio" class="custom-control-input" id="num_4" value="num_4"
-                           name="radioboxes">
-                    <label for="num_4" class="custom-control-label">four</label>
-                </div>
-                <div id="radioboxesMsg"></div>
-            </div>
-            <div class="form-group">
-                <h3>Checkbox</h3>
-
-                <div class="form-check">
-                    <input class="custom-control-input" type="checkbox" name="myCheckBoxes" value="checkbox One" id="gridCheck1">
-                    <label class="custom-control-label" for="gridCheck1">
-                        Example checkbox 1
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="custom-control-input" type="checkbox" name="myCheckBoxes" value="checkbox Two" id="gridCheck2">
-                    <label class="custom-control-label" for="gridCheck2">
-                        Example checkbox 2
-                    </label>
-                </div>
-                <span id="myCheckBoxesMsg"></span>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <h3 class="">Select (Dropdown)</h3>
-                    <select id="select" name="mySelect" class="browser-default custom-select">
-                        <option selected value="">Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div id="selectMsg"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-12 col-md-6 py-2">
-                    <h4>Single Upload </h4>
-                    <input autocomplete="off" class="upload-file" type="file" name="upload" id="upload"
-                           hidden="hidden"/>
-                    <button type="button" data-previous="upload" data-upload-text="uploadMsg" class="upload-btn">
-                        CHOOSE A FILE
-                    </button>
-                    <span id="uploadMsg">No file chosen, yet.</span>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-12 col-md-6 py-2">
-                    <h4>Multiple Upload </h4>
-                    <input autocomplete="off" class="upload-file" type="file" name="Multiupload" id="Multiupload"
-                           hidden="hidden" multiple/>
-                    <button type="button" data-previous="Multiupload" data-upload-text="MultiuploadMsg" class="upload-btn">
-                        CHOOSE FILES
-                    </button>
-                    <span id="MultiuploadMsg">No files chosen, yet.</span>
-                </div>
-            </div>
-        </div>
-
-        <center>
-            <div class="form-group" style="padding: 10px;">
-                <div class="row">
-                    <div class="col-12">
-                        <button type="submit" id="submit" class="submit-btn">Submit</button>
+        <form id="form">
+            <div style="border: 1px solid black;" class="p-5">
+                <div class="form-row">
+                    <!--Name and mobile number-->
+                    <div class="form-group col-md-6">
+                        <label for="name" class="justify-content-start mr-sm-2">Name:</label>
+                        <input autocomplete="off" type="text" class="form-control mb-2 mr-sm-2" id="name" name="name">
+                        <div id="nameMsg"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="mobilePhone" class="justify-content-start mr-sm-2">Mobile Phone:</label>
+                        <input autocomplete="off" type="text" class="form-control mb-2 mr-sm-2" id="mobilePhone"
+                            name="mobilePhone">
+                        <div id="mobilePhoneMsg"></div>
                     </div>
                 </div>
+                <!--Email Adress-->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email" class="justify-content-start mr-sm-2">Email Address:</label>
+                        <input autocomplete="off" type="text" class="form-control mb-2 mr-sm-2" id="email" name="email">
+                        <div id="emailMsg"></div>
+                    </div>
+                </div>
+                <!--Radio Box-->
+                <div class="form-group">
+                    <h4>Radio Box</h4>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input autocomplete="off" type="radio" class="custom-control-input" id="num_1" value="num_1"
+                            name="radioboxes">
+                        <label for="num_1" class="custom-control-label">one</label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input autocomplete="off" type="radio" class="custom-control-input" id="num_2" value="num_2"
+                            name="radioboxes">
+                        <label for="num_2" class="custom-control-label">two</label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input autocomplete="off" type="radio" class="custom-control-input" id="num_3" value="num_3"
+                            name="radioboxes">
+                        <label for="num_3" class="custom-control-label">three</label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input autocomplete="off" type="radio" class="custom-control-input" id="num_4" value="num_4"
+                            name="radioboxes">
+                        <label for="num_4" class="custom-control-label">four</label>
+                    </div>
+                    <div id="radioboxesMsg"></div>
+                </div>
+                <div class="form-group">
+                    <h3>Checkbox</h3>
+
+                    <div class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="myCheckBoxes" value="checkbox One"
+                            id="gridCheck1">
+                        <label class="custom-control-label" for="gridCheck1">
+                            Example checkbox 1
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="myCheckBoxes" value="checkbox Two"
+                            id="gridCheck2">
+                        <label class="custom-control-label" for="gridCheck2">
+                            Example checkbox 2
+                        </label>
+                    </div>
+                    <span id="myCheckBoxesMsg"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <h3 class="">Select (Dropdown)</h3>
+                        <select id="select" name="mySelect" class="browser-default custom-select">
+                            <option selected value="">Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <div id="selectMsg"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-6 py-2">
+                        <h4>Single Upload </h4>
+                        <input autocomplete="off" class="upload-file" type="file" name="upload" id="upload"
+                            hidden="hidden" />
+                        <button type="button" data-previous="upload" data-upload-text="uploadMsg" class="upload-btn">
+                            CHOOSE A FILE
+                        </button>
+                        <span id="uploadMsg">No file chosen, yet.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-12 col-md-6 py-2">
+                        <h4>Multiple Upload </h4>
+                        <input autocomplete="off" class="upload-file" type="file" name="Multiupload" id="Multiupload"
+                            hidden="hidden" multiple />
+                        <button type="button" data-previous="Multiupload" data-upload-text="MultiuploadMsg"
+                            class="upload-btn">
+                            CHOOSE FILES
+                        </button>
+                        <span id="MultiuploadMsg">No files chosen, yet.</span>
+                    </div>
+                </div>
+
+                <h2 class="m-5"><u>Validation Example with dyanamic fields</u></h2>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="favourite_food" class="justify-content-start mr-sm-2 ">Favourite Food:</label>
+                        <input autocomplete="off" type="text" class="form-control mb-2 mr-sm-2 favourite_food_class" id="favourite_food"
+                            name="favourite_food[]">
+
+                    </div>
+                </div>
+
+                <div id="append_favourite_food">
+
+                </div>
+
+                <i  class="fa fa-1x fa-plus-square" id="add_favourite_food" style="font-size: 19px; cursor: pointer;"
+                    class="center-block" >Add</i>
+                <i  class="fa fa-minus-square" id="remove_favourite_food" style="font-size: 19px; cursor: pointer;"
+                    class="center-block" >Remove</i>
+
+                <div id="favourite_foodMsg"></div>
+
+
             </div>
-        </center>
-    </form>
-</div>
+
+            <center>
+                <div class="form-group" style="padding: 10px;">
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" id="submit" class="submit-btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </form>
+    </div>
+    
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="validation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="validation.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        /* validation for upload button when clicked
-        *
-        * */
-        $(".upload-btn").click(function (e) {
-            let id = $(this).data("previous"); //get the previous attribute which is the id of the actual upload button
-            let text = $(this).data("upload-text"); //get the id of the place where the validation text will be shown
-            $("#" + id).trigger('click'); //then trigger the actual click on the actual button
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-            //optional
-            $("#" + id).on('change', function () {
-                //validationForm(id, text, 'required|file:[png,jpg,jpeg]|fileSize:5]'); //check the validation for upload when the event is changed
+            /* validation for upload button when clicked
+            *
+            * */
+            $(".upload-btn").click(function (e) {
+                let id = $(this).data("previous"); //get the previous attribute which is the id of the actual upload button
+                let text = $(this).data("upload-text"); //get the id of the place where the validation text will be shown
+                $("#" + id).trigger('click'); //then trigger the actual click on the actual button
+
+                //optional
+                $("#" + id).on('change', function () {
+                    //validationForm(id, text, 'required|file:[png,jpg,jpeg]|fileSize:5]'); //check the validation for upload when the event is changed
+                });
+                // End \\Optional
             });
-            // End \\Optional
+
+            $('form#form').on('submit', function (e) {
+                e.preventDefault();
+                let isvalid = []; //make an array to store the state of the validation
+                //function:
+                /**
+                 validation(
+                 ID of the input,
+                 ID of the place where the validation message will be shown,
+                 the type of validation you want to perform pipe separated
+                 )
+                 **/
+                isvalid.push(validationForm('name', 'nameMsg', "required|min:2|alpha"));
+                isvalid.push(validationForm('mobilePhone', 'mobilePhoneMsg', "required|numeric|min:2"));
+                isvalid.push(validationForm('email', 'emailMsg', "required|email"));
+
+                //  for upload the third parameter accepts file followed by colon and a array
+                // of file types allowed
+                //also u can specify the filesize in MB
+
+                isvalid.push(validationForm('upload', 'uploadMsg', "required|file:[png,jpg,jpeg]|fileSize:5]"));
+                isvalid.push(validationForm('Multiupload', 'MultiuploadMsg', "required|multifile:[png,jpg,jpeg]|multiFileSize:2]"));
+
+
+                /**
+                 1) For radio boxes its a bit different you need to pass the
+                 name in the first parameter instead of the ID
+                 2 )and for the second parameter you need to pass in the ID of the element where
+                 the message would be shown
+                 3) the third parameter accepts the type of validation
+                 4) and there is one extra parameter for this which requires it to be "radio"
+    
+                 * */
+                isvalid.push(validationForm('radioboxes', 'radioboxesMsg', "required|", 'radio', false));
+
+                /**
+                 1) For checkboxes need to  pass the
+                 name in the first parameter instead of the ID
+                 2 )and for the second parameter you need to pass in the ID of the element where
+                 the message would be shown
+                 3) the third parameter accepts the type of validation
+                 4) and there is one extra parameter for this which requires it to be "checkbox"
+                 * */
+
+                isvalid.push(validationForm('myCheckBoxes', 'myCheckBoxesMsg', "required|", 'checkbox', false));
+                isvalid.push(validationForm('select', 'selectMsg', "required|", 'select', false));
+
+
+                isvalid.push(validationFormLoop('favourite_food_class', 'favourite_foodMsg', "required|min:2|alpha"));
+
+              //  console.log(isvalid);
+                if (jQuery.inArray("false", isvalid) != -1) {
+                    // if false is found in the array
+
+                } else {
+
+                    //if all validation passes you can perform your form submission or Ajax call:
+                    /*var formData = new FormData($('#form')[0]);
+                    let url = $(this).attr('action');
+                    $.ajax({
+                        url:  url,
+                        processData: false,
+                        contentType: false,
+                        async: false,
+                        cache: false,
+                        type: 'POST',
+                        data:formData,
+                        success: function(data){
+                        }
+                    });*/
+                }
+            });
+        });
+    </script>
+
+
+
+    <script>
+        /*
+    code for  adding and removing dyanmic fields Starts Here
+    */
+
+        $("#remove_favourite_food").click(function (e) {
+            $('.addedRowFavFood:last-child').remove();
         });
 
-        $('form#form').on('submit', function (e) {
-            e.preventDefault();
-            let isvalid = []; //make an array to store the state of the validation
-            //function:
-            /**
-             validation(
-             ID of the input,
-             ID of the place where the validation message will be shown,
-             the type of validation you want to perform pipe separated
-             )
-             **/
-            isvalid.push(validationForm('name', 'nameMsg', "required|min:2|alpha"));
-            isvalid.push(validationForm('mobilePhone', 'mobilePhoneMsg', "required|numeric|min:2"));
-            isvalid.push(validationForm('email', 'emailMsg', "required|email"));
-
-           //  for upload the third parameter accepts file followed by colon and a array
-           // of file types allowed
-            //also u can specify the filesize in MB
-
-          isvalid.push(validationForm('upload', 'uploadMsg', "required|file:[png,jpg,jpeg]|fileSize:5]"));
-            isvalid.push(validationForm('Multiupload', 'MultiuploadMsg', "required|multifile:[png,jpg,jpeg]|multiFileSize:2]"));
-
-
-            /**
-           1) For radio boxes its a bit different you need to pass the
-           name in the first parameter instead of the ID
-           2 )and for the second parameter you need to pass in the ID of the element where
-           the message would be shown
-           3) the third parameter accepts the type of validation
-           4) and there is one extra parameter for this which requires it to be "radio"
-
-           * */
-           isvalid.push(validationForm('radioboxes', 'radioboxesMsg', "required|", 'radio',false));
-
-            /**
-             1) For checkboxes need to  pass the
-             name in the first parameter instead of the ID
-             2 )and for the second parameter you need to pass in the ID of the element where
-             the message would be shown
-             3) the third parameter accepts the type of validation
-             4) and there is one extra parameter for this which requires it to be "checkbox"
-             * */
-
-                isvalid.push(validationForm('myCheckBoxes', 'myCheckBoxesMsg', "required|",'checkbox',false));
-                isvalid.push(validationForm('select', 'selectMsg', "required|",'select',false));
-
-            console.log(isvalid);
-            if (jQuery.inArray("false", isvalid) != -1) {
-                // if false is found in the array
-
-            } else {
-
-                //if all validation passes you can perform your form submission or Ajax call:
-                /*var formData = new FormData($('#form')[0]);
-                let url = $(this).attr('action');
-                $.ajax({
-                    url:  url,
-                    processData: false,
-                    contentType: false,
-                    async: false,
-                    cache: false,
-                    type: 'POST',
-                    data:formData,
-                    success: function(data){
-                    }
-                });*/
-            }
+        $("#add_favourite_food").click(function (e) {
+            $("#append_favourite_food").append(" <div class='row addedRowFavFood'>\n" +
+                "        <div class='form-group col-md-6'>\n" +      
+                "            <input autocomplete='off' type='text' class='form-control mb-2 mr-sm-2 favourite_food_class'\n" +
+                "                   name='favourite_food[]'>\n" +
+                "        </div>\n" +
+                "    </div>");
         });
-    });
-</script>
 
+        /*
+    code for  adding and removing dyanmic fields ENDS Here
+    
+    */
+
+    </script>
 </body>
+
 </html>
