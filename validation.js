@@ -104,7 +104,7 @@ function validationForm(inputID_, messageID_, validationType, type ='text', show
         {
             if (flag)
             {
-                if(inputID.val() == "")
+                if(inputID.val() == "" || inputID.val() == null)
                 {
                     messageID.removeClass('balid-feedback');
                     inputID.removeClass('balid');
